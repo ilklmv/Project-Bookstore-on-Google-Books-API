@@ -1,18 +1,19 @@
-const path = require('path');
+/* eslint-disable no-undef */
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const StylelintPlugin = require('stylelint-webpack-plugin');
+const StylelintPlugin = require("stylelint-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     entry: path.resolve (__dirname, "index.js"),
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        path: path.resolve(__dirname, "dist"),
+        filename: "main.js"
 
     }, 
-    mode: 'production',
+    mode: "production",
     optimization: {
         minimize: true,
         minimizer: [
@@ -36,20 +37,16 @@ module.exports = {
           },
           {
             test: /\.pug$/i,
-            use: 'pug-loader',
+            use: "pug-loader",
           }
         ],
     },
-    devtool: 'source-map',
+    devtool: "source-map",
     devServer: {
         static: {
-          directory: path.join(__dirname, "dist"),
+            directory: path.join(__dirname, "dist"),
         },
-        port: 3001,
+        port: 8080,
         hot: true,
-        stats: {
-            children: false,
-            modulesSpace: 0,
-        },
     },
-}
+};

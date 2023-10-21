@@ -15,7 +15,7 @@
         "react"
     ],
     "rules": {
-        "semi": ["error", "off"],
+        "semi": ["error", "always"],
 		"quotes": ["error", "double"]
     }
 }

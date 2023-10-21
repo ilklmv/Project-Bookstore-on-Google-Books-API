@@ -1,3 +1,53 @@
+@import "variables";
+
 body {
-    background-color: #000001;
+    background-color: #ffffff;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.shop-name {
+    display: flex;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $text-black;
+}
+
+.shop-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $text-gray;
+    text-transform: uppercase;
+
+    &:hover {
+        color: $text-black;
+    }
+}
+
+.shop-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }

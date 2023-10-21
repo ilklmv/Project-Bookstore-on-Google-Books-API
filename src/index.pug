@@ -1,2 +1,26 @@
-script(src='./src/index.js')
-link(rel='stylesheet' type='text/css' href='src/dist/main.css')
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' type='text/css' href='src/dist/main.css')
+    title Bookstore
+  body
+    header
+      h1.shop-name Bookshop
+      ul.shop-menu
+        li Books
+        li Audiobooks
+        li Stationery & Gifts
+        li Blog
+      .shop-icon
+        img(src='/src/image/user.svg' alt='user')
+        img(src='/src/image/search.svg' alt='search')
+        img(src='/src/image/shop-bag.svg' alt='shop-bag')
+    main
+    footer
+    script(src='./src/index.js')
+
+
+
+
