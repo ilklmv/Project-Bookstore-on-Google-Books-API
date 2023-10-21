@@ -1,0 +1,40 @@
+{
+  "name": "project-bookstore-on-google-books-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilklmv/Project-Bookstore-on-Google-Books-API.git"
+  },
+  "author": "ilklmv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilklmv/Project-Bookstore-on-Google-Books-API/issues"
+  },
+  "homepage": "https://github.com/ilklmv/Project-Bookstore-on-Google-Books-API#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "eslint": "^8.52.0",
+    "eslint-plugin-react": "^7.33.2",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
+    "sass": "^1.69.4",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "stylelint": "^15.11.0",
+    "stylelint-webpack-plugin": "^4.1.1",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
