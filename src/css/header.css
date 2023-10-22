@@ -1,12 +1,12 @@
-body { background-color: #ffffff; width: 100%; margin: 0; padding: 0; height: 100%; min-height: 100%; }
+body { background-color: #ffffff; width: 100%; margin: 5% 10%; padding: 0; height: 100%; min-height: 100%; }
 
 header { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-pack: distribute; justify-content: space-around; }
 
 .shop-name { display: -webkit-box; display: -ms-flexbox; display: flex; font-family: Montserrat; font-size: 24px; font-weight: 700; line-height: 29px; letter-spacing: 0em; text-align: left; color: #1C2A39; }
 
-.shop-menu { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-family: Montserrat; font-size: 10px; font-weight: 900; line-height: 12px; letter-spacing: 0em; text-align: left; color: #5C6A79; text-transform: uppercase; }
+.shop-menu { display: -webkit-box; display: -ms-flexbox; display: flex; width: 40%; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-family: Montserrat; font-size: 10px; font-weight: 900; line-height: 12px; letter-spacing: 0em; text-align: left; color: #5C6A79; text-transform: uppercase; list-style: none; cursor: pointer; }
 .shop-menu:hover { color: #1C2A39; }
 
-.shop-icon { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.shop-icon { display: -webkit-box; display: -ms-flexbox; display: flex; width: 20%; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
 /*# sourceMappingURL=header.css.map */

@@ -3,7 +3,7 @@
 body {
     background-color: #ffffff;
     width: 100%;
-    margin: 0;
+    margin: 5% 10%;
     padding: 0;
     height: 100%;
     min-height: 100%;
@@ -28,6 +28,7 @@ header {
 
 .shop-menu {
     display: flex;
+    width: 40%;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -39,6 +40,8 @@ header {
     text-align: left;
     color: $text-gray;
     text-transform: uppercase;
+    list-style: none;
+    cursor: pointer;
 
     &:hover {
         color: $text-black;
@@ -47,6 +50,7 @@ header {
 
 .shop-icon {
     display: flex;
+    width: 20%;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;

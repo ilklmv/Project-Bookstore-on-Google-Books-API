@@ -3,6 +3,9 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet')
     link(rel='stylesheet' type='text/css' href='src/dist/main.css')
     title Bookstore
   body
@@ -14,12 +17,26 @@ html(lang='en')
         li Stationery & Gifts
         li Blog
       .shop-icon
-        img(src='/src/image/user.svg' alt='user')
+        img(src='./src/image/user.svg' alt='user')
         img(src='/src/image/search.svg' alt='search')
         img(src='/src/image/shop-bag.svg' alt='shop-bag')
     main
+        .banner-container
+                .slider-container
+                    .slider
+                        .slide
+                        img(src='/src/image/banner_1.jpg' alt='Sale 1')
+                        .slide
+                        img(src='/src/image/banner 2.jpg' alt='Sale 2')
+                        .slide
+                        img(src='/src/image/banner 3.jpg' alt='Sale 3')
+                .slider-controls
+                    .slider-dot.active
+                    .slider-dot
+                    .slider-dot
     footer
-    script(src='./src/index.js')
+    script(src='./index.js')
+
 
 
 

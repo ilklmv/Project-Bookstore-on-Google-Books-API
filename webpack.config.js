@@ -38,15 +38,25 @@ module.exports = {
           {
             test: /\.pug$/i,
             use: "pug-loader",
-          }
+          },
+          {
+            test: /\.(png|jpe?g|gif|svg)$/,
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[name].[ext]',
+                  outputPath: 'image/',
+                },
+              },
+            ],
+          },
         ],
     },
     devtool: "source-map",
     devServer: {
-        static: {
-            directory: path.join(__dirname, "dist"),
-        },
-        port: 8080,
+        static: path.join(__dirname, "dist"),
+        port: 8000,
         hot: true,
     },
 };
