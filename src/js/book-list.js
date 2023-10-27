@@ -1,4 +1,4 @@
-// Пример данных
+// Список жанров 
 const genres = [
     "Architecture",
     "Art & Fashion",
@@ -19,7 +19,7 @@ const genres = [
   ];
   
   const apiUrl = "https://www.googleapis.com/books/v1/volumes?q=";
-  let currentCategory = genres[0]; // Объявляем currentCategory и устанавливаем первую категорию по умолчанию
+  let currentCategory = genres[0]; 
   
   // Добавляем кнопку "Load More"
   const loadMoreButton = document.querySelector(".load-more");
@@ -35,7 +35,7 @@ const genres = [
   // Добавляем кнопку "Load More" в конец контейнера
   const container = document.querySelector(".book-container");
   container.appendChild(loadMoreButton);
-  let startIndex = 0; // Добавил инициализацию переменной startIndex
+  let startIndex = 0;
   
   // Функция для загрузки книг по выбранной категории
   function loadBooks(category, startIndex = 0) {
@@ -125,7 +125,7 @@ const genres = [
   });
   
   // Загружаем книги для первой категории по умолчанию
-  loadBooks(genres[0]); // Изменил загрузку книг при загрузке страницы
+  loadBooks(genres[0]); 
   
   loadMoreButton.addEventListener("click", () => {
     startIndex += 6;

@@ -41,7 +41,7 @@ sliderDots.forEach((dot, index) => {
     });
 });
 
-// Automatically advance to the next slide every 3 seconds
+// Автоматическое переключение слайдов каждые 5 секунд
 setInterval(nextSlide, 5000);
 
 updateSlider();

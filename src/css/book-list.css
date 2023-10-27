@@ -1,0 +1,207 @@
+@charset "UTF-8";
+.book-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: Montserrat; }
+
+.genre-list {
+  z-index: 0;
+  width: 15%;
+  height: 100%;
+  padding: 5% 5%;
+  background-color: #EFEEF6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: left;
+  color: #1C2A39; }
+
+.genre-list div {
+  margin-bottom: 1em;
+  position: relative;
+  cursor: pointer; }
+
+.genre-list div.active {
+  font-weight: bold; }
+
+.genre-list div.active::before {
+  content: "\2022";
+  /* Код символа для кружка */
+  position: absolute;
+  left: -1em;
+  /* Расположение кружка слева от текста */
+  color: #756AD3;
+  /* Цвет кружка */
+  font-size: 1.2em;
+  /* Размер кружка */ }
+
+.book-list {
+  z-index: 1;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0px;
+  margin-top: 5%;
+  margin-left: -5%; }
+
+.book {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 45%;
+  /* Ширина каждой книги */
+  margin-bottom: 20px;
+  background-color: opacity;
+  padding: 10px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+
+.book-info {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.book img {
+  width: 50%;
+  /* Размер обложки книги */
+  height: auto;
+  margin-right: 10px; }
+
+.book h2 {
+  font-size: 1.2em;
+  margin-top: 0;
+  color: #1C2A39;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left; }
+
+.book rating {
+  font-family: Open Sans;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #5C6A79; }
+
+.book p {
+  margin: 0.5em 0;
+  font-family: Open Sans;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #5C6A79; }
+
+.book author {
+  margin: 0.5em 0;
+  font-family: Open Sans;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #5C6A79; }
+
+.book price {
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left; }
+
+.buy-now {
+  height: 5em;
+  background-color: #ffffff;
+  color: #4C3DB2;
+  border: 1px solid #4C3DB2;
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 10px;
+  letter-spacing: 0em;
+  text-align: center;
+  text-transform: uppercase; }
+
+.buy-now:hover {
+  background-color: #4C3DB2;
+  color: #ffffff; }
+
+/* Добавляем стили для звездочек */
+.book-info p {
+  margin: 0.5em 0;
+  font-size: 16px; }
+
+.star-rating {
+  color: #ffc107;
+  /* Цвет звездочек (желтый) */ }
+
+.book-rating {
+  color: #f4d142;
+  /* Желтый цвет для звездочек */
+  font-size: 1.2em; }
+
+/* Звездочки для рейтинга */
+.star {
+  color: #f4d142;
+  /* Желтый цвет для звездочек */ }
+
+.star.empty {
+  color: #ddd;
+  /* Цвет для пустых звездочек (серый) */ }
+
+.load-more {
+  display: block;
+  -webkit-box-align: bottom;
+      -ms-flex-align: bottom;
+          align-items: bottom;
+  height: 5em;
+  background-color: #ffffff;
+  color: #4C3DB2;
+  border: 1px solid #4C3DB2;
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 10px;
+  letter-spacing: 0em;
+  text-align: center;
+  text-transform: uppercase; }
+
+.load-more:hover {
+  background-color: #4C3DB2;
+  color: #ffffff; }
+
+.book-list {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  /* Меняем порядок отображения для блока book-list */
+  margin-top: 20px;
+  /* Добавляем отступ между блоками */ }
+
+/*# sourceMappingURL=book-list.css.map */

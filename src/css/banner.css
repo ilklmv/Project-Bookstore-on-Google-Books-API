@@ -1,0 +1,43 @@
+@charset "UTF-8";
+.banner-container {
+  text-align: center; }
+
+.slider-container {
+  width: 50%;
+  overflow: hidden;
+  margin: 0 auto; }
+
+.slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease; }
+
+.slide {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%; }
+
+/* Стили для кругов */
+.slider-controls {
+  text-align: center;
+  margin-top: 10px; }
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer; }
+  .slider-dot.active {
+    background-color: #007bff; }
+  .slider-dot:not(.active) {
+    background-color: #ccc; }
+
+/*# sourceMappingURL=banner.css.map */
