@@ -1,147 +1,122 @@
-// Список жанров 
-const genres = [
-    "Architecture",
-    "Art & Fashion",
-    "Biography",
-    "Business",
-    "Crafts & Hobbies",
-    "Drama",
-    "Fiction",
-    "Food & Drink",
-    "Health & Wellbeing",
-    "History & Politics",
-    "Humor",
-    "Poetry",
-    "Psychology",
-    "Science",
-    "Technology",
-    "Travel & Maps"
-  ];
-  
-  const apiUrl = "https://www.googleapis.com/books/v1/volumes?q=";
-  let currentCategory = genres[0]; 
-  
-  // Добавляем кнопку "Load More"
-  const loadMoreButton = document.querySelector(".load-more");
-  const bookList = document.querySelector(".book-container");
-  bookList.appendChild(loadMoreButton);
-  
-  // Добавляем обработчик событий для кнопки "Load More"
-  loadMoreButton.addEventListener("click", () => {
-      startIndex += 6;
-      loadBooks(currentCategory, startIndex);
-  });
-  
-  // Добавляем кнопку "Load More" в конец контейнера
-  const container = document.querySelector(".book-container");
-  container.appendChild(loadMoreButton);
-  let startIndex = 0;
-  
-  // Функция для загрузки книг по выбранной категории
-  function loadBooks(category, startIndex = 0) {
+document.addEventListener("DOMContentLoaded", () => {
+    const categoryList = document.querySelector(".category-list");
     const bookList = document.querySelector(".book-list");
-    bookList.innerHTML = ""; // Очищаем предыдущий список книг
-  
-    const query = encodeURIComponent(`subject:${category}`);
-    const maxResults = 6;
-  
-    fetch(`${apiUrl}${query}&startIndex=${startIndex}&maxResults=${maxResults}`)
-      .then(response => response.json())
-      .then(data => {
-        data.items.forEach(book => {
-          const bookItem = document.createElement("div");
-          bookItem.classList.add("book");
-  
-          // Обложка слева
-          const bookImage = document.createElement("img");
-          bookImage.src = book.volumeInfo.imageLinks.thumbnail;
-          bookItem.appendChild(bookImage);
-  
-          // Информация о книге в столбике справа
-          const bookInfo = document.createElement("div");
-          bookInfo.classList.add("book-info");
-  
-          const bookAuthor = document.createElement("author");
-          bookAuthor.textContent = `${book.volumeInfo.authors.join(", ")}`;
-          bookInfo.appendChild(bookAuthor);
-  
-          const bookTitle = document.createElement("h2");
-          bookTitle.textContent = book.volumeInfo.title;
-          bookInfo.appendChild(bookTitle);
-  
-          const bookRating = document.createElement("rating");
-          const rating = book.volumeInfo.averageRating;
-          const reviewCount = book.volumeInfo.ratingsCount;
-          bookRating.innerHTML = `${getStarRating(rating)} ${reviewCount} review`;
-          bookInfo.appendChild(bookRating);
-  
-          const bookDescription = document.createElement("p");
-          const maxDescriptionLength = 50;
-          bookDescription.textContent =
-            book.volumeInfo.description.length > maxDescriptionLength
-              ? book.volumeInfo.description.substring(0, maxDescriptionLength) + "..."
-              : book.volumeInfo.description;
-          bookDescription.classList.add("book-description");
-          bookInfo.appendChild(bookDescription);
-  
-          bookItem.appendChild(bookInfo);
-  
-          const bookPrice = document.createElement("price");
-          bookPrice.textContent = `$${(Math.random() * 30 + 5).toFixed(2)}`;
-          bookInfo.appendChild(bookPrice);
-  
-          const buyNowButton = document.createElement("button");
-          buyNowButton.textContent = "Buy Now";
-          buyNowButton.classList.add("buy-now");
-          bookInfo.appendChild(buyNowButton);
-  
-          bookItem.appendChild(bookInfo);
-  
-          bookList.appendChild(bookItem);
-        });
-      })
-      .catch(error => console.error(error));
-  }
-  
-  // Заполняем список жанров и устанавливаем первый жанр как активный
-  const genreList = document.querySelector(".genre-list");
-  genres.forEach(genre => {
-    const genreItem = document.createElement("div");
-    genreItem.textContent = genre;
-    genreList.appendChild(genreItem);
-  });
-  
-  genreList.children[0].classList.add("active"); // Устанавливаем первый жанр как активный по умолчанию
-  
-  // Добавляем обработчик событий для жанров
-  genreList.addEventListener("click", (event) => {
-    if (event.target.tagName === "DIV") {
-      const selectedGenre = event.target.textContent;
-      genreList.querySelectorAll("div").forEach(item => item.classList.remove("active"));
-      event.target.classList.add("active");
-      startIndex = 0; // Сброс начального индекса при выборе нового жанра
-      loadBooks(selectedGenre);
+    const loadMoreButton = document.querySelector(".load-more");
+
+    const categories = [
+        "Architecture",
+        "Art & Fashion",
+        "Biography",
+        "Business",
+        "Crafts & Hobbies",
+        "Drama",
+        "Fiction",
+        "Food & Drink",
+        "Health & Wellbeing",
+        "History & Politics",
+        "Humor",
+        "Poetry",
+        "Psychology",
+        "Science",
+        "Technology",
+        "Travel & Maps",
+    ];
+
+    categories.forEach((category) => {
+        const li = document.createElement("li");
+        li.textContent = category;
+        categoryList.appendChild(li);
+    });
+
+    categoryList.addEventListener("click", (e) => {
+        if (e.target.tagName === "LI") {
+            const activeCategory = categoryList.querySelector(".active");
+            if (activeCategory) {
+                activeCategory.classList.remove("active");
+            }
+            e.target.classList.add("active");
+            loadBooks(e.target.textContent);
+        }
+    });
+
+    loadBooks(categories[0]);
+
+    let startIndex = 0;
+    loadMoreButton.addEventListener("click", () => {
+        startIndex += 6;
+        const activeCategory = categoryList.querySelector(".active");
+        if (activeCategory) {
+            loadBooks(activeCategory.textContent, startIndex);
+        }
+    });
+
+    function loadBooks(category, startIndex = 0) {
+        const apiKey = "AIzaSyCH4sChyw7m5slJRApx0EyonVpOpBs8Qfk";
+        const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=subject:${category}&key=${apiKey}&printType=books&startIndex=${startIndex}&maxResults=6&langRestrict=en`;
+
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((data) => {
+                if (startIndex === 0) {
+                    bookList.innerHTML = "";
+                }
+                data.items.forEach((item) => {
+                    const book = item.volumeInfo;
+                    const authors = book.authors ? book.authors.join(", ") : "Unknown";
+                    const thumbnail = book.imageLinks ? book.imageLinks.thumbnail : "placeholder.png";
+                      let ratingHtml = "";
+    if (book.averageRating) {
+        const rating = Math.round(book.averageRating);
+        ratingHtml = "★".repeat(rating) + "☆".repeat(5 - rating);
+    } else {
+        ratingHtml = "No ratings available";
+    }const rating = book.averageRating ? `${book.averageRating} (${book.ratingsCount} ratings)` : "";
+                    const description = book.description ? book.description.substring(0, 150) + "..." : "No description available";
+                    const price = book.saleInfo && book.saleInfo.listPrice ? `${book.saleInfo.listPrice.amount} ${book.saleInfo.listPrice.currencyCode}` : "";                             
+                    const bookCard = document.createElement("div");
+                    bookCard.classList.add("book-card");
+                    bookCard.innerHTML = `
+                        <img src="${thumbnail}" alt="${book.title}">
+                        <div class="text-info">
+                        <p class="authors">${authors}</p>
+                        <h3>${book.title}</h3>
+                        <p class="rating">${rating}</p>
+                        <p class="description">${description}</p>
+                        <p class="price">${price}</p>
+                        <button class="buy-button">Buy now</button>
+                        </div>
+                    `;
+                    bookList.appendChild(bookCard);
+
+                    const buyButton = bookCard.querySelector(".buy-button");
+                    buyButton.addEventListener("click", () => {
+                        toggleBookInCart(book, bookCard);
+                    });
+                });
+
+                if (data.totalItems <= startIndex + 6) {
+                    loadMoreButton.style.display = "none";
+                } else {
+                    loadMoreButton.style.display = "block";
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
-  });
-  
-  // Загружаем книги для первой категории по умолчанию
-  loadBooks(genres[0]); 
-  
-  loadMoreButton.addEventListener("click", () => {
-    startIndex += 6;
-    const activeGenre = document.querySelector(".genre-list .active").innerText;
-    loadBooks(activeGenre, startIndex);
-  });
-  
-  function getStarRating(rating) {
-    const fullStars = Math.floor(rating);
-    const halfStars = rating % 1 >= 0.5 ? 1 : 0;
-    const emptyStars = 5 - fullStars - halfStars;
-  
-    const starIcons = "★".repeat(fullStars) + (halfStars ? "" : "") + "☆".repeat(emptyStars);
-  
-    return starIcons;
-  }
-  
-  
-  
+
+    function toggleBookInCart(book, bookCard) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const bookIndex = cart.findIndex((item) => item.id === book.id);
+        if (bookIndex === -1) {
+            cart.push({ id: book.id, title: book.title });
+            bookCard.querySelector(".buy-button").classList.add("in-cart");
+        } else {
+            cart.splice(bookIndex, 1);
+            bookCard.querySelector(".buy-button").classList.remove("in-cart");
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+});

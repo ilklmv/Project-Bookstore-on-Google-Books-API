@@ -1,207 +1,42 @@
 @charset "UTF-8";
-.book-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-family: Montserrat; }
+.book-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; max-width: 100%; margin: 0 auto; padding: 20px; font-family: Montserrat; }
 
-.genre-list {
-  z-index: 0;
-  width: 15%;
-  height: 100%;
-  padding: 5% 5%;
-  background-color: #EFEEF6;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 15px;
-  text-align: left;
-  color: #1C2A39; }
+.categories { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
 
-.genre-list div {
-  margin-bottom: 1em;
-  position: relative;
-  cursor: pointer; }
+.category-list { z-index: 0; width: 50%; height: 45%; padding: 5% 25%; background-color: #EFEEF6; font-size: 12px; font-weight: 500; line-height: 15px; text-align: left; color: #1C2A39; list-style-type: none; }
 
-.genre-list div.active {
-  font-weight: bold; }
+.category-list ul { margin-bottom: 1em; position: relative; cursor: pointer; }
 
-.genre-list div.active::before {
-  content: "\2022";
-  /* Код символа для кружка */
-  position: absolute;
-  left: -1em;
-  /* Расположение кружка слева от текста */
-  color: #756AD3;
-  /* Цвет кружка */
-  font-size: 1.2em;
-  /* Размер кружка */ }
+.category-list li { margin-bottom: 1em; }
 
-.book-list {
-  z-index: 1;
-  width: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 0px;
-  margin-top: 5%;
-  margin-left: -5%; }
+.category-list li.active { font-weight: bold; }
 
-.book {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 45%;
-  /* Ширина каждой книги */
-  margin-bottom: 20px;
-  background-color: opacity;
-  padding: 10px;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start; }
+.category-list li.active::before { content: "\2022"; /* Код символа для кружка */ position: absolute; margin-left: -1em; /* Расположение кружка слева от текста */ color: #756AD3; /* Цвет кружка */ font-size: 1.2em; /* Размер кружка */ }
 
-.book-info {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column; }
+.books { -webkit-box-flex: 2; -ms-flex: 2; flex: 2; }
 
-.book img {
-  width: 50%;
-  /* Размер обложки книги */
-  height: auto;
-  margin-right: 10px; }
+.book-list { z-index: 1; width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-pack: distribute; justify-content: space-around; padding: 1em 0em; margin-left: -15%; }
 
-.book h2 {
-  font-size: 1.2em;
-  margin-top: 0;
-  color: #1C2A39;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 20px;
-  letter-spacing: 0em;
-  text-align: left; }
+.book-card { display: -webkit-box; display: -ms-flexbox; display: flex; width: 40%; /* Ширина каждой книги */ margin-bottom: 20px; background-color: opacity; padding: 10px; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; }
 
-.book rating {
-  font-family: Open Sans;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 14px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #5C6A79; }
+.book-card img { width: 40%; /* Размер обложки книги */ height: auto; margin-right: 10px; }
 
-.book p {
-  margin: 0.5em 0;
-  font-family: Open Sans;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 14px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #5C6A79; }
+.book-card .text-info { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; height: 100%; }
 
-.book author {
-  margin: 0.5em 0;
-  font-family: Open Sans;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 14px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #5C6A79; }
+.book-card .authors { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin: 0.5em 0; font-family: Open Sans; font-size: 10px; font-weight: 400; line-height: 14px; letter-spacing: 0em; text-align: left; color: #5C6A79; }
 
-.book price {
-  margin-top: 10px;
-  font-weight: bold;
-  font-family: Montserrat;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 16px;
-  letter-spacing: 0em;
-  text-align: left; }
+.book-card .rating { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; font-family: Open Sans; font-size: 10px; font-weight: 400; line-height: 14px; letter-spacing: 0em; text-align: left; color: #5C6A79; }
 
-.buy-now {
-  height: 5em;
-  background-color: #ffffff;
-  color: #4C3DB2;
-  border: 1px solid #4C3DB2;
-  margin-top: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 8px;
-  font-weight: 700;
-  line-height: 10px;
-  letter-spacing: 0em;
-  text-align: center;
-  text-transform: uppercase; }
+.book-card .description { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin: 0.5em 0; font-family: Open Sans; font-size: 10px; font-weight: 400; line-height: 14px; letter-spacing: 0em; text-align: left; color: #5C6A79; }
 
-.buy-now:hover {
-  background-color: #4C3DB2;
-  color: #ffffff; }
+.book-card .price { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-top: 10px; font-weight: bold; font-family: Montserrat; font-size: 13px; font-weight: 700; line-height: 16px; letter-spacing: 0em; text-align: left; }
 
-/* Добавляем стили для звездочек */
-.book-info p {
-  margin: 0.5em 0;
-  font-size: 16px; }
+.buy-button { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; height: 5em; background-color: #ffffff; color: #4C3DB2; border: 1px solid #4C3DB2; margin-top: 10px; padding: 5px 10px; cursor: pointer; font-size: 8px; font-weight: 700; line-height: 10px; letter-spacing: 0em; text-align: center; text-transform: uppercase; }
 
-.star-rating {
-  color: #ffc107;
-  /* Цвет звездочек (желтый) */ }
+.buy-button:hover { background-color: #4C3DB2; color: #ffffff; }
 
-.book-rating {
-  color: #f4d142;
-  /* Желтый цвет для звездочек */
-  font-size: 1.2em; }
+.load-more { height: 5em; margin: 0 auto; background-color: #ffffff; color: #4C3DB2; border: 1px solid #4C3DB2; margin-top: 10px; padding: 5px 10px; cursor: pointer; font-size: 8px; font-weight: 700; line-height: 10px; letter-spacing: 0em; text-align: center; text-transform: uppercase; }
 
-/* Звездочки для рейтинга */
-.star {
-  color: #f4d142;
-  /* Желтый цвет для звездочек */ }
-
-.star.empty {
-  color: #ddd;
-  /* Цвет для пустых звездочек (серый) */ }
-
-.load-more {
-  display: block;
-  -webkit-box-align: bottom;
-      -ms-flex-align: bottom;
-          align-items: bottom;
-  height: 5em;
-  background-color: #ffffff;
-  color: #4C3DB2;
-  border: 1px solid #4C3DB2;
-  margin-top: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 8px;
-  font-weight: 700;
-  line-height: 10px;
-  letter-spacing: 0em;
-  text-align: center;
-  text-transform: uppercase; }
-
-.load-more:hover {
-  background-color: #4C3DB2;
-  color: #ffffff; }
-
-.book-list {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  /* Меняем порядок отображения для блока book-list */
-  margin-top: 20px;
-  /* Добавляем отступ между блоками */ }
+.load-more:hover { background-color: #4C3DB2; color: #ffffff; }
 
 /*# sourceMappingURL=book-list.css.map */

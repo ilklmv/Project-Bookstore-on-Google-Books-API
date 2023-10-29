@@ -1,94 +1,90 @@
 .book-container {
     display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
     font-family: Montserrat;
 }
 
-.genre-list {
+.categories {
+    flex: 1;
+}
+
+.category-list {
     z-index: 0;
-    width: 15%;
-    height: 100%;
-    padding: 5% 5%;
+    width: 50%;
+    height: 45%;
+    padding: 5% 25%;
     background-color: #EFEEF6;
     font-size: 12px;
     font-weight: 500;
     line-height: 15px;
     text-align: left;
     color: #1C2A39;
+    list-style-type: none;
 }
 
-.genre-list div {
+.category-list ul {
     margin-bottom: 1em;
     position: relative;
     cursor: pointer;
 }
 
-.genre-list div.active {
+.category-list li {
+    margin-bottom: 1em; 
+}
+
+.category-list li.active {
     font-weight: bold; 
 }
 
-.genre-list div.active::before {
+.category-list li.active::before {
     content: "\2022"; /* Код символа для кружка */
     position: absolute;
-    left: -1em; /* Расположение кружка слева от текста */
+    margin-left: -1em; /* Расположение кружка слева от текста */
     color: #756AD3; /* Цвет кружка */
     font-size: 1.2em; /* Размер кружка */
 }
 
+.books {
+  flex: 2;
+}
+
 .book-list {
     z-index: 1;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 0px;
-    margin-top: 5%;
-    margin-left: -5%;
+    padding: 1em 0em;
+    margin-left: -15%;
 }
 
-.book {
+.book-card {
     display: flex;
-    width: 45%; /* Ширина каждой книги */
+    width: 40%; /* Ширина каждой книги */
     margin-bottom: 20px;
     background-color: opacity;
     padding: 10px;
     align-items: flex-start;
 }
 
-.book-info {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.book img {
-    width: 50%; /* Размер обложки книги */
+.book-card img {
+    width: 40%; /* Размер обложки книги */
     height: auto;
     margin-right: 10px;
 }
 
-.book h2 {
-    font-size: 1.2em;
-    margin-top: 0;
-    color: #1C2A39;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: left;
+.book-card .text-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.book rating {
-  font-family: Open Sans;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 14px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #5C6A79;
-}
-
-.book p {
+.book-card .authors {
+  flex: 1;
   margin: 0.5em 0;
   font-family: Open Sans;
   font-size: 10px;
@@ -99,7 +95,19 @@
   color: #5C6A79;
 }
 
-.book author {
+.book-card .rating {
+  flex: 1;
+  font-family: Open Sans;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #5C6A79;
+}
+
+.book-card .description {
+  flex: 1;
   margin: 0.5em 0;
   font-family: Open Sans;
   font-size: 10px;
@@ -108,10 +116,10 @@
   letter-spacing: 0em;
   text-align: left;
   color: #5C6A79;
-
 }
 
-.book price {
+.book-card .price {
+  flex: 1;
   margin-top: 10px;
   font-weight: bold;
   font-family: Montserrat;
@@ -120,10 +128,10 @@
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
-
 }
 
-.buy-now {
+.buy-button {
+    flex: 1;
     height: 5em;
     background-color: #ffffff;
     color: #4C3DB2;
@@ -139,38 +147,14 @@
     text-transform: uppercase;
 }
 
-.buy-now:hover {
+.buy-button:hover {
     background-color: #4C3DB2;
     color: #ffffff;
 }
 
-/* Добавляем стили для звездочек */
-.book-info p {
-    margin: 0.5em 0;
-    font-size: 16px;
-}
-
-.star-rating {
-    color: #ffc107; /* Цвет звездочек (желтый) */
-}
-.book-rating {
-    color: #f4d142; /* Желтый цвет для звездочек */
-    font-size: 1.2em;
-}
-
-/* Звездочки для рейтинга */
-.star {
-    color: #f4d142; /* Желтый цвет для звездочек */
-}
-
-.star.empty {
-    color: #ddd; /* Цвет для пустых звездочек (серый) */
-}
-
 .load-more {
-    display: block;
-    align-items: bottom;
     height: 5em;
+    margin: 0 auto;
     background-color: #ffffff;
     color: #4C3DB2;
     border: 1px solid #4C3DB2;
@@ -189,9 +173,3 @@
     background-color: #4C3DB2;
     color: #ffffff;
 }
-
-.book-list {
-    order: 1; /* Меняем порядок отображения для блока book-list */
-    margin-top: 20px; /* Добавляем отступ между блоками */
-}
-
