@@ -3,7 +3,10 @@
     "ignoreFiles": [
         "/banner.scss",
         "/books-list.scss",
-        "/header.scss"
+        "/header.scss",
+        "/header.css",
+        "/books-list.scss",
+        "/banner.scss"
       ],
     "rules": {
       "indentation": 2, 
