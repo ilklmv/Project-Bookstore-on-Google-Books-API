@@ -32,19 +32,19 @@
 }
 
 .category-list li {
-    margin-bottom: 1em; 
-}
+    margin-bottom: 1em;
+    
+    &.active {
+        font-weight: bold; 
+    }
 
-.category-list li.active {
-    font-weight: bold; 
-}
-
-.category-list li.active::before {
-    content: "\2022"; /* Код символа для кружка */
-    position: absolute;
-    margin-left: -1em; /* Расположение кружка слева от текста */
-    color: #756AD3; /* Цвет кружка */
-    font-size: 1.2em; /* Размер кружка */
+    &::before {
+        content: "\2022"; /* Код символа для кружка */
+        position: absolute;
+        margin-left: -1em; /* Расположение кружка слева от текста */
+        color: #756AD3; /* Цвет кружка */
+        font-size: 1.2em; /* Размер кружка */
+    }
 }
 
 .books {
@@ -145,11 +145,11 @@
     letter-spacing: 0em;
     text-align: center;
     text-transform: uppercase;
-}
 
-.buy-button:hover {
-    background-color: #4C3DB2;
-    color: #ffffff;
+    &:hover {
+        background-color: #4C3DB2;
+        color: #ffffff;
+    }   
 }
 
 .load-more {
@@ -167,9 +167,11 @@
     letter-spacing: 0em;
     text-align: center;
     text-transform: uppercase;
+
+    &:hover {
+        background-color: #4C3DB2;
+        color: #ffffff;
+    }
 }
 
-.load-more:hover {
-    background-color: #4C3DB2;
-    color: #ffffff;
-}
+

@@ -64,13 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     const book = item.volumeInfo;
                     const authors = book.authors ? book.authors.join(", ") : "Unknown";
                     const thumbnail = book.imageLinks ? book.imageLinks.thumbnail : "placeholder.png";
-                      let ratingHtml = "";
-    if (book.averageRating) {
-        const rating = Math.round(book.averageRating);
-        ratingHtml = "★".repeat(rating) + "☆".repeat(5 - rating);
-    } else {
-        ratingHtml = "No ratings available";
-    }const rating = book.averageRating ? `${book.averageRating} (${book.ratingsCount} ratings)` : "";
+                    let ratingHtml = "";
+                        if (book.averageRating) {
+                            const rating = Math.round(book.averageRating);
+                            ratingHtml = "★".repeat(rating) + "☆".repeat(5 - rating);
+                        } else {
+                            // eslint-disable-next-line no-unused-vars
+                            ratingHtml = "No ratings available";
+                        }const rating = book.averageRating ? `${book.averageRating} (${book.ratingsCount} ratings)` : "";
                     const description = book.description ? book.description.substring(0, 150) + "..." : "No description available";
                     const price = book.saleInfo && book.saleInfo.listPrice ? `${book.saleInfo.listPrice.amount} ${book.saleInfo.listPrice.currencyCode}` : "";                             
                     const bookCard = document.createElement("div");
@@ -120,3 +121,20 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }
 });
+
+// Найдем элементы, которые нам понадобятся
+const buyNowButton = document.querySelector('.buy-now-button');
+const cartCount = document.getElementById('cart-count');
+
+// Инициализируем счетчик
+let itemCount = 0;
+
+// Добавляем обработчик события на кнопку "buy-now"
+buyNowButton.addEventListener('click', () => {
+  // Увеличиваем счетчик
+  itemCount++;
+
+  // Обновляем значение в элементе "cart-count"
+  cartCount.textContent = itemCount;
+});
+
